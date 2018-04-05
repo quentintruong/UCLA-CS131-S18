@@ -1,0 +1,300 @@
+\documentclass[11pt, oneside]{article}  
+\usepackage[margin=0.5in]{geometry} % Margins
+\usepackage[ampersand]{easylist} % Bullets for lists
+\usepackage[bottom]{footmisc}  % Glue footnotes to bottom
+\usepackage{graphicx}
+\graphicspath{ {imgs/} }
+
+\title{Programming Languages\\UCLA-CS131-S18}
+\author{Quentin Truong\\Taught by Professor Eggert}
+\date{Spring 2018}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagenumbering{arabic}
+\clearpage
+
+
+%========================================================
+\section{Ch1: Programming Languages}
+\subsection{Introduction}
+	\begin{easylist}  
+	\ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Practical Magic
+        && Useful and beautiful
+        & Programming Languages
+        && ML, Java, Prolog
+	\end{easylist}
+
+\subsection{The Amazing Variety}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Imperative Languages (C)
+        && Hallmarks: assignment and iteration
+        & Functional Languages (ML, Lisp)
+        && Hallmarks: recursion and single-valued variables
+        && Factorial is natural to functional
+        & Logic Programming Languages (Prolog)
+        && Express program in terms of rules about logical inferences and proving things
+        && Factorial is very not natural to logic programming; not well suited to mathematical functions
+        & Object-oriented Programming Languages (Java)
+        && Object is a bundle of data which knows how to do things to itself
+        && Helps keep large programs organized
+        & Other categories
+        && Applicative, concurrent, constraint, declarative, definitional, procedural scripting, single-asstgnmen
+        & Multi-paradigm
+        && JavaScript, OCaml, Python, Ruby
+        & Others
+        && FORTH is stack-oriented
+        && APL is a unique functional language relying on large character sets with many symbols that most users don't have
+    \end{easylist}
+
+\subsection{The Odd Controversies}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Partisans
+        && For every language b/c some advantages
+        && But all languages have advantages and disadvantages
+        && Disagreement even on basic terminology, like object oriented
+    \end{easylist}
+
+\subsection{The Intriguing Evolution}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Programming languages change
+        && All change; new ones evolve from old ones
+        && Many have several dialects
+        && Fortran is entirely only dialects (sequence of standards)
+    \end{easylist}
+
+\subsection{The Many Connections}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Styles
+        && Object Oriented, like Java -> objects
+        && Functional, like ML -> many small functions
+        && Logic, like Prolog -> express problem as searches in logically defined space of solutions
+        & Language evolution driven by hardware + applications
+        && AI encouraged Lisp; Classes bc Simula
+    \end{easylist}
+
+\subsection{A Word about Application Programming Interfaces}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Application Programming Interfaces (API)
+        && May implement data structures, GUI, network input/output, encryption, security, other services
+        && Is much of language; more than the printed specification of the language
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch2: Defining Program Syntax}
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Syntax
+        && Language definition that says how programs look (form and structure)
+        && Appearance, delimiters, etc
+        & Semantics
+        && language definition that says what programs do (behavior and meaning)
+        && How it works, what can go wrong, etc
+        & Formal grammar
+        && Used to define programming language syntax
+    \end{easylist}
+
+\subsection{A Grammar Example for English}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & English
+        && Article, noun, noun phrase, verb, sentence composes subset of unpunctuated English
+        && Grammar used as set of rules that say how to build a parse tree (sentence at root)
+        && Language defined by grammar is set of all strings that can be formed as fringes of parse trees
+    \end{easylist}
+
+\subsection{A Grammar Example for a Programming Language}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Infinite language have arbitrarily long expressions
+        && Recursive grammar where exprsesions can be children of expressions
+        &&& Expressions can be sum/product/enclosed/variable of two expressions
+    \end{easylist}
+
+\subsection{A Definition of Grammars: Backus-Naur Form}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Tokens
+        && Smallest units of syntax
+        && Strings and symbols not consisting of smaller parts (cat, if, !=)
+        & Non-terminal symbols
+        && Correspond to different language constructs (sentences, noun pharses, statements)
+        && Special non terminal symbol \textless empty>
+        & Productions
+        && Possible way of building parse tree
+        && LHS is non-terminal; RHS is sequence of one or more things
+        & Start symbol
+        && Special non-terminal symbol
+        & \textless if-stmt \textgreater ::= if \textless expr \textgreater then \textless stmt \textgreater else-part \textgreater
+        && \textless else-part \textgreater ::= else \textless stmt \textgreater | \textless empty \textgreater
+    \end{easylist}
+
+\subsection{Writing Grammars}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Divide and Conquer
+        && \textless var-dec \textgreater ::= \textless type-name \textgreater \textless declarator-list \textgreater ;
+        && \textless declarator-list \textgreater ::= \textless declarator \textgreater | \textless declarator \textgreater , \textless declarator-list \textgreater
+        && BNF syntax defines programming language constructs
+    \end{easylist}
+
+\subsection{Lexical Structure and Phrase Structure}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Lexical Structure
+        && How to divide program text into tokens
+        & Phrase Structure
+        && How to construct parse trees with tokens at leaves
+        & Separate lexical and phrase structure
+        && Otherwise, is ugly, hard to read, and complicated
+        & Lexer
+        && Reads input file and converts to stream of tokens, discarding white space and comments
+        & Parser
+        && Reads stream of tokens and forms parse tree
+        & Free-format languages 
+        && End-of-line is no more special than space or tab
+        && Most modern languages don't care for column position, so could write program as a single line
+        && Python is an exception
+    \end{easylist}
+
+\subsection{Other Grammar Forms}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Backus-Naur Form (BNF)
+        && Has many minor variations, use = or -\textgreater instead of ::=
+        && Metasymobls are part of language of the definition, not of the language being defined
+        & Extended Backus-Naur Form (EBNF)
+        && Might use brackets, parentheses, etc
+        && [optional], \{repeatable\}, (group)
+        && Use quotes to denote tokens as not metasymbols
+        & Syntax Diagrams (Railroad diagram)
+        && Way to express grammars graphically
+        && Uses circles, rectangles, and arrows to show flow and possible control flows
+        && Railroad diagram bc many many arrows
+        && Good for casual use; hard for machines + parse trees
+        & Formal, Context-free Grammars
+        && Formal languages study formal grammars
+        && Context-free b/c children of node in parse tree depend only on that node's non-terminal symbol (not on context of neighboring nodes in tree)
+        && Regular grammars (less expressive, good for lexical structure) and context-sensitive grammars (more expressive, good for phrase structure) both exist
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Grammars
+        && Used to define syntax (lexical and phrase structure)
+        && Lexical is division of program text into meaningful tokens
+        && Phrase is organization of tokens into parse tree for meaningful structures
+        & Good grammars
+        && If grammar is in the correct form, can be fed into parser-generator
+        && Simple, readable, short grammars are more memorable + easier to learn/use
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch3: Where Syntax Meets Semantics}
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Grammar
+        && Set of rules for constructing parse trees
+        && Language defined by grammar is set of fringes of parse trees
+        & Equivalent Grammars
+        && Different grammars may generate identical languages (bc identical fringes despite different internal structure)
+        & Internal structure of parse tree
+        && Semantics must be unambiguous
+    \end{easylist}
+
+\subsection{Operators}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Operator (+, *)
+        && Refers to both the tokens for the operation, and the operation itself
+        && Unary, binary, ternary take one, two, three operands
+        & Operands
+        && Inputs to operator
+        & Infix Notation
+        && Operator between operands
+        && Postfix has operator after operands
+    \end{easylist}
+
+\subsection{Precedence}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Higher precedence performed before lower precedence
+        && Use different non-terminal symbol for each precedence level
+        && Non-terminal symbols in this chain are in order of precedence, from lowest to highest (is generalizable)
+        & Precedence Levels
+        && Smalltalk has 1 precedence level (no precedence)
+        && C has 15, Pascal has 5
+        && Can add unnecessary parentheses to make expressions more readable
+    \end{easylist}
+
+\subsection{Associativity}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Grammar for a language must generate only one parse tree for each expression
+        && So need to implement left/right-associative (eliminate the other direction)
+        && \textless exp \textgreater ::= \textless exp \textgreater + \textless exp \textgreater
+        && \textless exp \textgreater ::= \textless exp \textgreater + \textless mulexp \textgreater $\vert$ \textless mulexp \textgreater
+        && Only recursive on left side, so that it is left associative and grows tree left
+        & Nonassociative operator
+        && Has no defined behavior when used in sequence in expression 
+        && Prolog 'a :-  b :- c' is just a syntax error; also '1 < 2 < 3'
+    \end{easylist}
+
+\subsection{Other Ambiguities}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch1: Programming Languages}
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+\clearpage
+%========================================================
+
+\end{document}

@@ -252,43 +252,279 @@
         && Only recursive on left side, so that it is left associative and grows tree left
         & Nonassociative operator
         && Has no defined behavior when used in sequence in expression 
-        && Prolog 'a :-  b :- c' is just a syntax error; also '1 < 2 < 3'
+        && Prolog 'a :-  b :- c' is just a syntax error; also '1 \textless 2 \textless 3'
     \end{easylist}
 
 \subsection{Other Ambiguities}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & 
+        & Ambiguous Grammars
+        && Allows construction of two different parse trees for same string
+        & Dangling else
+        && Optional else part, so grammar may be ambiguous
+        && Can fix using \textless fullstmt \textgreater
+        && Or use indenting (Python) or other ways to fix it
     \end{easylist}
 
-\subsection{Introduction}
+\subsection{Cluttered Grammars}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & 
+        & Novice users
+        && Just want to find out what legal programs look like
+        & Advanced users and language-system implementers
+        && Need exact, detailed definition
+        & Automatic tools
+        && Complete and unambiguous
+        && Not sensitive to clutter
     \end{easylist}
 
-\subsection{Introduction}
+\subsection{Parse Trees and EBNF}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & 
+        & EBNF can be easier to read
+        && Eliminates some confusing recursions, but obscures structure of parse tree
+        && Must quote many tokens, bc they are tokens in the language being defined
+        && Grammar still incomplete without explanation of intended associativity for binary operators
     \end{easylist}
 
-\subsection{Introduction}
+\subsection{Abstract Syntax Trees}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & 
+        & Abstract Syntax Trees (AST)
+        && Node for every operation, with subtree for every operand
+        && Many language systems ust AST as internal representation of program
+        && Type-checking and post-parsing carried out on AST
     \end{easylist}
 
-\subsection{Introduction}
+\subsection{Conclusion}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & 
+        & Grammar defines more than syntax
+        & Unique parse trees allow us to begin to define semantics
+        & Parse trees and ASTs are where syntax meet semantics
     \end{easylist}
 \clearpage
 %========================================================
 
 %========================================================
-\section{Ch1: Programming Languages}
+\section{Ch5: A First Look at ML}
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Standard ML is the popular functional language
+        && Mostly learned just for knowledge of programming languages
+    \end{easylist}
+
+\subsection{Getting Started with an ML Language System}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & -1 + 2 * 3
+        && val it = 7 : int
+        && Very powerful type-inference system
+        && 'it' is a variable whose value is the value of the last expression
+    \end{easylist}
+
+\subsection{Constants, Operators, Conditional Expressions, Type Conversion and Function Application, Variable Definition}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Constants
+        && real if decimal, int if integer, negation operator is a tilde
+        && ML is case sensitive
+        & Operators
+        && Integers: + - * div mod
+        && Reals: + - * tilde /
+        && String: \^ for concat
+        && Inequality: \textgreater \textless
+        & If-then-else 
+        && if \textless expr \textgreater then \textless expr \textgreater else \textless expr \textgreater;
+        & Type conversions
+        && Never does conversions automatically
+        & Parentheses around function parameters are unnecessary
+        & Variable definition
+        && val x = 1 + 2;
+        && Letter followed by zero or more additional letters, digits, underscores
+        && ML expects input to be a series of definitions, so if type just an expression, will set val it = exp
+    \end{easylist}
+
+\subsection{Garbage Collection, Tuples and Lists}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & GC \#0.0.0.0.1.3 (0 ms)
+        && ML prints this if performing garbage collection (SML/NJ)
+        & Tuples
+        && Ordered collection of values of different types (tuples OK too)
+        && val p1 = ("red", (300, 200)) 
+        &&& val p1 = ("red", (300,200)) : string * (int * int)
+        && * is type constructor
+        && To extract ith element of tuple named v, write \#i v
+        & List
+        && Elements must be of same type
+        && Uses square brackets
+        && Empty list is nil or [] and has unknown type
+        && @ symbol does concatenation for lists
+        && cons (construct) is written as :: and wil glue elements onto front of list
+        && head (hd) and tail (tl) will extact first/all except first parts of a list
+        & Type variables
+        && Type that is unknown
+        && 'a list might be any type
+        && x = [] is restricted to type, so use null x instead
+        & Recursive Functions
+        && Could use hd to take first element, and recursively call, resulting in iteration
+    \end{easylist}
+
+\subsection{Function Definitions}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Polymorphic function
+        && Paramters allow different types
+        && Ex: List length function
+    \end{easylist}
+
+\subsection{ML Types and Type Annotations}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Types: int, real, bool, char, string
+        & Constructors: * for tuples, list for lists, -> for function types
+        & Type annotations: necessary for ambiguous situations
+        && fun prod(a:real, b:real) : real = a * b;
+        && Many larger ML projects use type annotations heavily
+    \end{easylist}
+
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch7: A Second Look at ML}
+\subsection{Patterns}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & A variable is a pattern that matches anything and bnids to it
+        & Underscore character matches anything and does not introduce new variables
+        & Constant is pattern that matches only that constant value
+        & Tuple of patterns is pattern that matches tuple of any right size, whose contents match subpatterns
+        & List of patterns is pattern that matches list of rgiht size, whose contents match subpatterns
+        & Cons of patterns is pattern that matches non-empty list whose head and tail match the subpatterns
+        && x :: xs matches any non-empty list; binds x to head; binds xs to tail
+    \end{easylist}
+
+\subsection{Using Multiple Patterns for Functions}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & fun f 0 = "zero" $|$ f 1 = "one";
+        && Two different function bodies (still nonexhaustive)
+        && If overlapping, tries patterns in order they are listed, using the first one that matches
+    \end{easylist}
+
+\subsection{Pattern-Matching Style}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & If-else
+        && Equivalent to the multiple patterns
+        && Multiple patterns is often preferred and cleaner
+        & Functions
+        && null l returns true if the list l is empty
+        && length l returns the number of elements in the list l
+        && hd l returns the first element of l
+        && tl l returns all but the first element of l
+        & Variable name cannot be used more than once unless you want them to be legal
+        & Patterns can be used in definitions
+        && val (a, b) = (1, 2.3);
+        &&& val a = 1 : int
+        &&& val b = 2.3 : real
+        && val a :: b = [1, 2, 3, 4, 5];
+        &&& val a = 1 : int
+        &&& val b = [2, 3, 4, 5] : int list
+    \end{easylist}
+
+\subsection{Local Variable Definitions and Nested Function Definitions}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & \textless let-exp \textgreater ::= let \textless definitions \textgreater in \textless expression \textgreater end
+        && \textless definitions \textgreater hold only within \textless let-exp \textgreater
+        & Generally don't need to use \# to extract from tuple, can use pattern matching
+        & Use halve function to divide list into pair of half-lists
+        && half [1]
+        &&& val it = ([1], []) : int list * int list
+        & Use merge function to merge
+        & Local functions
+        && Can define functions inside other function definitions
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch9: A Third Look at ML}
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Case expressions
+        && Pattern matching can be used in many other places, including case expressions
+        & Higher order functions
+        && Take other functions as parameters or produces them as returned values
+        && Used more often in functional languages than in imperative languages
+    \end{easylist}
+
+\subsection{More Pattern Matching}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Rule
+        && \textless rule \textgreater ::= \textless pattern \textgreater = \textgreater \textless expression \textgreater
+        & Match
+        && \textless match \textgreater ::= \textless rule \textgreater $|$ \textless rule \textgreater '$|$' \textless match \textgreater
+        & Case
+        && \textless case-exp \textgreater ::= case \textless expression \textgreater of \textless match \textgreater
+    \end{easylist}
+
+\subsection{Function Values and Anonymous Functions}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Predefined functions like ord and -:
+        && Variables just like others, but initially bound to functions
+        & New functions and bind name to function automatically
+        && fun f x = x + 2
+        & Anonymous function
+        && fn x =\textgreater x + 2
+        && Useful when need small function in one place and don't want to clutter
+        & op \textless
+        && Extracts the function used by the operator \textless
+    \end{easylist}
+
+\subsection{Higher-Order Functions and Currying}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Order
+        && Function that does not take any functions as parameters and does not return a function value has order 1
+        && Function that takes a function as a parameter or returns a function value has order n + 1, where n is the order of its highest-order parameter or returned value
+        && Higher-order function is an nth order function where n is greater than 1
+        & Currying
+        && Use higher order functions to pass multiple parameters into a function
+        && Function takes first parameter and returns another function, which takes second parameter and returns final result
+        && Is an alternative way to passing multiple parameters (could pass tuple)
+        && Main advantages is that we can pass only some of the parameters, and save the function
+        && fun g a b c is equivalent to fun g a =\textgreater fn b =\textgreater fn c
+    \end{easylist}
+
+\subsection{Predefined Higher Order Functions}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & map
+        && Applies some function to every element in the list
+        & foldr
+        && Combines all elements into one value with starting value
+        && foldr (op * ) 1 [1, 2, 3, 4];
+        &&& val it = 24 : int
+        && foldr (op ::) [5] [1, 2, 3, 4];
+        &&& val it = [1, 2, 3, 4, 5] : int list
+        && foldr (op \string^) "" ["abc", "def", "ghi"]
+        &&& val it = "abcdefghi" : string
+        & foldl
+        && same as foldr, except proceeds from left to right
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch9: }
 \subsection{Introduction}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)

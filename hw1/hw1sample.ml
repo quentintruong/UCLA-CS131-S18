@@ -53,7 +53,7 @@ let computed_periodic_point_test0 =
   computed_periodic_point (=) (fun x -> x / 2) 0 (-1) = -1
 let computed_periodic_point_test1 =
   computed_periodic_point (=) (fun x -> x *. x -. 1.) 2 0.5 = -1.
-(*
+
 (* An example grammar for a small subset of Awk, derived from but not
    identical to the grammar in
    <http://web.cs.ucla.edu/classes/winter06/cs132/hw/hw1.html>.  *)
@@ -148,4 +148,3 @@ let giant_test2 =
     (Sentence,
      [Grunt, [T "khrgh"]; Shout, [T "aooogah!"];
       Sentence, [N Grunt]; Sentence, [N Shout]])
-*)

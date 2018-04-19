@@ -524,7 +524,209 @@
 %========================================================
 
 %========================================================
-\section{Ch9: }
+\section{Ch4: Langauge Systems}
+\subsection{The Classical Sequence}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Language System
+        && Is what makes programming languages actually work
+        & Integrated Development Environment
+        && Single interface for editing, running, and debugging programs
+        & Classical Sequence of Language-System steps
+        && Editor creates source file
+        && Compiler creates assembly-language file
+        &&& Translates program from original high-level lnaguage into assembly langauge (instructions for processor)
+        && Assembler creates object file
+        &&& Converts each instruction into machine language
+        && Linker creates executable file
+        &&& Collect and combine different parts of program
+        && Loader creates a running program in memory
+    \end{easylist}
+
+\subsection{Optimization}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Compiler automatically optimizes code to make it faster and/or take up less memory
+        & Loop invariant removal
+        && Moves calculations of values which don't change outside the loop
+        & Code may be oreoranized, removed, or added
+        && Not obvious what assembly code will be generated
+    \end{easylist}
+
+\subsection{Variations on the Classical Sequence}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Hiding steps
+        && gcc will compile, assemble, and link
+        && Using gcc, as, and ld can recreate these steps
+        & Integrated Development Environment
+        && Integrated editor will supply indenting and colors to make it easier to read
+        && May also provide source-control features to track verisons and coordinate collaboration
+        && May help with rebuilding automatically, especially when only a few files have changes
+        & Interpreters
+        && Executes program without translating it beforehand
+        & Virtual Machines
+        && Perform classical sequence of language-system steps to get an executable for a virtual machine
+        && Virtual-machine simulator is an interpreter, and compiles high-level program into intermediate code
+        && Virtual machines are often platform independent and more secure (b/c is never in control of physical processor)
+        && Java virtual machine is intermediate code supported on many different physical machines
+        && Wide spectrum of intermediate languages, ranging from pure interpreter to compiler
+        & Delayed Linking
+        && Windows' load-time dynamic linking links program to all library functions just before program begins running (.dll)
+        && Windows' run-time dynamic linking require explicit calls to find and load functions from library (.dll)
+        && Unix shared libraries are linked by loader just before program begins running (.so)
+        && Unix dynamically loaded libraries require explicit calls to fnid and load functions during runtime (.so)
+        && Multiple programs can share library function (fewer copies)
+        && Library function may be updated independently of the program
+        && Only load what is necessary, so startup is faster
+        & Profiling
+        && Instead of guessing what part of code is most important, compile twice
+        && Compile program, run it and collect statistics, then recompile and generate better code
+        & Dynamic Compilation
+        && Just-in-time compilation
+        && Compile after program starts running, once the function is actually called
+        && Java virtual machine uses this
+    \end{easylist}
+
+\subsection{Binding Times}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Language-Definition Time
+        && Keywords are part of language definition and language-system implementations must conform
+        & Language-Implementation Time
+        && Properties left out of language definition
+        && Range for int is implementation dependent in C and ML
+        && May introduce limits, such as on maximum length of name, levels of nesting, etc
+        & Compile Time
+        && Type of variable is bound
+        && Bind variable definitons to reference; nontrivial for large programs
+        & Link Time
+        && Find definitons of library functions to match each reference
+        & Load Time
+        && May adjust program, then load into memory
+        & Runtime
+        && Early binding is when property is bound before runtime
+        &&& More secure, less things go wrong
+        && Late binding is runtime binding
+        &&& More runtime flexibility
+        && Each high-level language has different binding-time implications
+        &&& In lisp, may not know type until runtime
+    \end{easylist}
+
+\subsection{Debuggers}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Core dump
+        && When langauge system hits fatal defect, writes copy of memory to a file
+        && Useful for postmortem analysis
+        && Language-system tool later extracts meaningful information from dump file, such as traceback, value of variables, etc
+        & Interactive debuggers allow programmer to inspect and modify variables while still running
+        && Debugger must express things in terms of the original program, not the compiled changes
+        && Must know the names of variables/functions, not just memory addresses
+        && But the optimizations of modern compilers weaken the connection between source and machine code, meaning that debuggers must conceal the actions of compilers and give the programmer the impression of debugging directly
+        & Integrated language system can provide editing and recompiling program while still running
+    \end{easylist}
+
+\subsection{Runtime Support}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Runtime support
+        && Additonal code included even though program does not explicitly refer to it, used in the following:
+        && Startup processing, to set up processor and memory in thew ay high-level code expects
+        && Exception handling, finding the exception handler or catching exceptions
+        && Memory management, icluding allocation and freeing
+        && Operating system input communication
+        && Concurrrent execution
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Classical Sequence
+        && Edit, compile, assemble, link, load, run
+        & Binding times
+        && Language definition, language implementation
+        && Early, late
+        & Debuggers and runtime support
+        & Programming language is not the same as programming-language system
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch6: Types}
+\subsection{Menagerie of Types}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & A Type is a Set
+        && Can only have values from a certain set
+        && Share common representation in how they are encoded in memory
+        && Supports particular operations
+        & Primitive Types and Constructed Types
+        && Primitive types are like int and real
+        && Constructed types are defined by programmer
+        && Definition of progarmming language may say exactly what set each primitive type must be, or may leave room for choosing different sets
+        &&& Java wants programs to have same result across platforms, so defines all types completely
+        &&& C and ML allow different implementations
+        & Enumerations
+        && Define new types by ilsting all elements of the type
+        && Enums in C just wraps integers, allowing you to add elements as if integers
+        && ML completely hides the implementation
+        & Tuples
+        && Generalized to n-tuples of any type
+        && Aggregate types are tuples, records, arrays, strings, lists
+        && Scalar types are primitives and enumerations
+        & Arrays, Strings, Lists
+        && Set A$^n$ is set of all vectors of length n 
+        && Array indices are not always only integers (Pascal)
+        & Unions
+        && Mutiple elements in same block of memory
+        && Discriminated Union supports records which also contain enumeration
+        & Subtypes
+        && Subset of an existing set
+        && Can support superset of operations
+        & Function Types
+        && From set A to set B
+    \end{easylist}
+
+\subsection{Uses for Types}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Type Annotations
+        && Explicit type information used to determine type/documentation
+        && Required in Java; allowed in ML; disallowed in Prolog, but comments serve the purpose
+        && ANSI Basic has ultra-compact type annotation inside the variable name
+        & Type Inference
+        && Most languages infer types based on operands or value
+        && ML infers types for every expression
+        & Type Checking
+        && Point is to prevent incorrect operations to operands
+        && Static type checking determines type for everything before running
+        &&& Generates consistent picture of types
+        && Dynamic type checking checks types at runtime
+        &&& Helpful for operators, etc
+        && Many systems implement both static and dynamic bc hard to know exact type + is expensive to check all types
+        && Strongly typed languages have type checking thorough enough to prevent any mistakes
+        && Java is strongly typed, Pascal is somewhat weak, C is more weak
+        & Type-Equivalence Issues
+        && Name-equivalence is when types are equivalent iff same name
+        && Structural equivalence is when types are equivalent iff constructed from same primitive types using same constructors in same order
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}  
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Types are similar to mathematical sets
+        & Abstract type describes types defined only in terms of supported operations
+        & Static vs dynamic type checking
+        & Name vs structural equivalence
+        & Type annotation vs inference
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch4: Langauge Systems}
 \subsection{Introduction}
     \begin{easylist}  
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)

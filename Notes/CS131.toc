@@ -42,5 +42,17 @@
 \contentsline {subsection}{\numberline {6.3}Function Values and Anonymous Functions}{11}
 \contentsline {subsection}{\numberline {6.4}Higher-Order Functions and Currying}{11}
 \contentsline {subsection}{\numberline {6.5}Predefined Higher Order Functions}{11}
-\contentsline {section}{\numberline {7}Ch9: }{13}
-\contentsline {subsection}{\numberline {7.1}Introduction}{13}
+\contentsline {section}{\numberline {7}Ch4: Langauge Systems}{13}
+\contentsline {subsection}{\numberline {7.1}The Classical Sequence}{13}
+\contentsline {subsection}{\numberline {7.2}Optimization}{13}
+\contentsline {subsection}{\numberline {7.3}Variations on the Classical Sequence}{13}
+\contentsline {subsection}{\numberline {7.4}Binding Times}{14}
+\contentsline {subsection}{\numberline {7.5}Debuggers}{14}
+\contentsline {subsection}{\numberline {7.6}Runtime Support}{14}
+\contentsline {subsection}{\numberline {7.7}Introduction}{15}
+\contentsline {section}{\numberline {8}Ch6: Types}{16}
+\contentsline {subsection}{\numberline {8.1}Menagerie of Types}{16}
+\contentsline {subsection}{\numberline {8.2}Uses for Types}{16}
+\contentsline {subsection}{\numberline {8.3}Conclusion}{17}
+\contentsline {section}{\numberline {9}Ch4: Langauge Systems}{18}
+\contentsline {subsection}{\numberline {9.1}Introduction}{18}

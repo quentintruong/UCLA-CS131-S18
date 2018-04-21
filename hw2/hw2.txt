@@ -1,0 +1,58 @@
+====================================================================
+Problem 1: convert_grammar gram1 
+
+The nature of this problem is for all rules
+with the same nonterminal, condense them (while maintaining stable order) into a
+single list. Repeat this for all distinct rules. Then, create some functional
+mapping from the nonterminal to the generated list.
+
+I use create_production_list to condense rules using two accumulators -
+curr_alt_list is a temporary accumulator for rules; production_pair_list is the
+final result accumulator for pairs between the nonterminal and it's list. Each
+time we recurse, we pass the current nonterminal. If the previous nonterminal is
+the same as the current nonterminal, we continue adding. Otherwise, we add to
+the final accumulator and start a new list.
+
+Next, we wrap List.assoc to create a key-value mapping function. This function
+is the end result.
+
+Initial approaches included trying to create a function with variable matching
+values. I realized that OCaml syntax does not support this.
+====================================================================
+Problem 2: parse_prefix gram
+
+The parse_prefix function was particularly interesting. My initial approaches
+failed to sufficiently solve the problem. Initially, I understood that
+parse_prefix can generate the matcher by currying a few grammar-related
+parameters. Also, I realized that mutual recursion would be required for
+matching nonterminals and the symbols inside their respective alternative lists
+(because the symbols of rhs of rules may require matching of nonterminals).
+However, I did not initially realize that the solution would use recursion
+through a modified acceptor function.
+
+In early attempts, I attempted to solve the problem using three distinct levels
+of recursion. I tried to have parse_prefix set up matcher, then matcher traverse
+for each rule in alternative_list using symbol_matcher, then symbol_matcher
+traverse for each symbol in rule. This did not work because symbol_matcher often
+needs to explore nonterminals using matcher. When symbol_matcher called matcher
+to explore additional nonterminals, I had trouble returning back to the previous
+state while also accumulating new derivations. The algorithm could not return to
+the correct position. Because the code did this, it was not able to parse the
+rest of the rules.
+
+Also, in early attempts, I had trouble with OCaml syntax, including how to write
+the syntax for mutually recursive functions. Another early issue I had was with
+how to form the deriv parsing while still searching for other terminals. I
+eventually used an accumulator for this task (also, the TA's diagram reinforced
+this notion).
+
+The TA posted a diagram (included in hw2.ml) regarding how to implement
+parse_prefix. I realized that acceptor needed to be dynamically modified. The
+modified acceptor allows us to chain nonterminal matching.
+
+One weakness of this implementation is that the matcher simply matches the first
+possible rule, even when there are other better solutions. For example, if we
+want to match "ABC" and our first rule is for "AB" and the second rule is "ABC",
+we will match "AB", not "ABC". I feel that this is generally incorrect, although
+OK for this assignment.
+====================================================================

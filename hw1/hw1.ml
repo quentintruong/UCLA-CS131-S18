@@ -7,16 +7,16 @@ open Pervasives;;
 (* Utility
 *)
 let rec print_list_int = function 
-    [] -> ()
-    | e::l ->   print_int e ; 
+| [] -> ()
+| e::l ->   print_int e ; 
                 print_string "; " ; 
                 print_list_int l;;
 
 (* Symbol definition for grammar
 *)
 type ('nonterminal, 'terminal) symbol =
-  | N of 'nonterminal
-  | T of 'terminal;;
+| N of 'nonterminal
+| T of 'terminal;;
 
 (*  1.
     Write a function subset a b that returns true iff a⊆b, i.e., if the set represented by the list a is a subset of the set represented by the list b. 
@@ -122,17 +122,17 @@ let rec rle_decode lp = match lp with
     This function should preserve the order of rules: 
     that is, all rules that are returned should be in the same order as the rules in g.*)
 let check_if_terminal_symbol symbol terminal_symbols = match symbol with
-    | T symbol -> true
-    | N symbol -> mem symbol terminal_symbols;;
+| T symbol -> true
+| N symbol -> mem symbol terminal_symbols;;
 
 let rec check_if_terminal_rule rule terminal_symbols = match rule with
-    | [] -> true
-    | symbol::t -> (check_if_terminal_symbol symbol terminal_symbols) && (check_if_terminal_rule t terminal_symbols);;
+| [] -> true
+| symbol::t -> (check_if_terminal_symbol symbol terminal_symbols) && (check_if_terminal_rule t terminal_symbols);;
 
 (*  do one pass through all rules and append rules that are terminal and not already in terminal_rules *)
 let rec extract_terminal_rules rules terminal_rules = match rules with
-    | [] -> terminal_rules
-    | rule::t -> if (not (mem rule terminal_rules)) && (check_if_terminal_rule (snd rule) (fst (split terminal_rules))) then 
+| [] -> terminal_rules
+| rule::t -> if (not (mem rule terminal_rules)) && (check_if_terminal_rule (snd rule) (fst (split terminal_rules))) then 
                         extract_terminal_rules t (rule::terminal_rules)
                      else
                         extract_terminal_rules t terminal_rules;;

@@ -20,7 +20,7 @@
 %========================================================
 \section{Ch1: Programming Languages}
 \subsection{Introduction}
-	\begin{easylist}  
+	\begin{easylist}
 	\ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Practical Magic
         && Useful and beautiful
@@ -29,7 +29,7 @@
 	\end{easylist}
 
 \subsection{The Amazing Variety}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Imperative Languages (C)
         && Hallmarks: assignment and iteration
@@ -43,7 +43,7 @@
         && Object is a bundle of data which knows how to do things to itself
         && Helps keep large programs organized
         & Other categories
-        && Applicative, concurrent, constraint, declarative, definitional, procedural scripting, single-asstgnmen
+        && Applicative, concurrent, constraint, declarative, definitional, procedural scripting, single-assignment
         & Multi-paradigm
         && JavaScript, OCaml, Python, Ruby
         & Others
@@ -52,7 +52,7 @@
     \end{easylist}
 
 \subsection{The Odd Controversies}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Partisans
         && For every language b/c some advantages
@@ -61,7 +61,7 @@
     \end{easylist}
 
 \subsection{The Intriguing Evolution}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Programming languages change
         && All change; new ones evolve from old ones
@@ -70,18 +70,18 @@
     \end{easylist}
 
 \subsection{The Many Connections}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Styles
         && Object Oriented, like Java -> objects
-        && Functional, like ML -> many small functions
-        && Logic, like Prolog -> express problem as searches in logically defined space of solutions
+        && Functional, like ML -\textgreater many small functions
+        && Logic, like Prolog -\textgreater express problem as searches in logically defined space of solutions
         & Language evolution driven by hardware + applications
         && AI encouraged Lisp; Classes bc Simula
     \end{easylist}
 
 \subsection{A Word about Application Programming Interfaces}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Application Programming Interfaces (API)
         && May implement data structures, GUI, network input/output, encryption, security, other services
@@ -93,20 +93,20 @@
 %========================================================
 \section{Ch2: Defining Program Syntax}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Syntax
         && Language definition that says how programs look (form and structure)
         && Appearance, delimiters, etc
         & Semantics
-        && language definition that says what programs do (behavior and meaning)
+        && Language definition that says what programs do (behavior and meaning)
         && How it works, what can go wrong, etc
         & Formal grammar
         && Used to define programming language syntax
     \end{easylist}
 
 \subsection{A Grammar Example for English}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & English
         && Article, noun, noun phrase, verb, sentence composes subset of unpunctuated English
@@ -115,7 +115,7 @@
     \end{easylist}
 
 \subsection{A Grammar Example for a Programming Language}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Infinite language have arbitrarily long expressions
         && Recursive grammar where exprsesions can be children of expressions
@@ -123,34 +123,34 @@
     \end{easylist}
 
 \subsection{A Definition of Grammars: Backus-Naur Form}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Tokens
         && Smallest units of syntax
         && Strings and symbols not consisting of smaller parts (cat, if, !=)
         & Non-terminal symbols
         && Correspond to different language constructs (sentences, noun pharses, statements)
-        && Special non terminal symbol \textless empty>
+        && Special nonterminal symbol \textless empty \textgreater
         & Productions
         && Possible way of building parse tree
         && LHS is non-terminal; RHS is sequence of one or more things
         & Start symbol
         && Special non-terminal symbol
         & \textless if-stmt \textgreater ::= if \textless expr \textgreater then \textless stmt \textgreater else-part \textgreater
-        && \textless else-part \textgreater ::= else \textless stmt \textgreater | \textless empty \textgreater
+        && \textless else-part \textgreater ::= else \textless stmt \textgreater $|$ \textless empty \textgreater
     \end{easylist}
 
 \subsection{Writing Grammars}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Divide and Conquer
         && \textless var-dec \textgreater ::= \textless type-name \textgreater \textless declarator-list \textgreater ;
-        && \textless declarator-list \textgreater ::= \textless declarator \textgreater | \textless declarator \textgreater , \textless declarator-list \textgreater
+        && \textless declarator-list \textgreater ::= \textless declarator \textgreater $|$ \textless declarator \textgreater , \textless declarator-list \textgreater
         && BNF syntax defines programming language constructs
     \end{easylist}
 
 \subsection{Lexical Structure and Phrase Structure}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Lexical Structure
         && How to divide program text into tokens
@@ -169,7 +169,7 @@
     \end{easylist}
 
 \subsection{Other Grammar Forms}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Backus-Naur Form (BNF)
         && Has many minor variations, use = or -\textgreater instead of ::=
@@ -190,7 +190,7 @@
     \end{easylist}
 
 \subsection{Conclusion}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Grammars
         && Used to define syntax (lexical and phrase structure)
@@ -206,7 +206,7 @@
 %========================================================
 \section{Ch3: Where Syntax Meets Semantics}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Grammar
         && Set of rules for constructing parse trees
@@ -218,7 +218,7 @@
     \end{easylist}
 
 \subsection{Operators}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Operator (+, *)
         && Refers to both the tokens for the operation, and the operation itself
@@ -231,7 +231,7 @@
     \end{easylist}
 
 \subsection{Precedence}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Higher precedence performed before lower precedence
         && Use different non-terminal symbol for each precedence level
@@ -243,7 +243,7 @@
     \end{easylist}
 
 \subsection{Associativity}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Grammar for a language must generate only one parse tree for each expression
         && So need to implement left/right-associative (eliminate the other direction)
@@ -252,11 +252,11 @@
         && Only recursive on left side, so that it is left associative and grows tree left
         & Nonassociative operator
         && Has no defined behavior when used in sequence in expression 
-        && Prolog 'a :-  b :- c' is just a syntax error; also '1 \textless 2 \textless 3'
+        && In Prolog, '1 \textless 2 \textless 3' is meaningless because \textless doesn't work that way
     \end{easylist}
 
 \subsection{Other Ambiguities}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Ambiguous Grammars
         && Allows construction of two different parse trees for same string
@@ -267,7 +267,7 @@
     \end{easylist}
 
 \subsection{Cluttered Grammars}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Novice users
         && Just want to find out what legal programs look like
@@ -279,25 +279,25 @@
     \end{easylist}
 
 \subsection{Parse Trees and EBNF}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & EBNF can be easier to read
+        & EBNF (Extended Backus-Naur Form) can be easier to read
         && Eliminates some confusing recursions, but obscures structure of parse tree
         && Must quote many tokens, bc they are tokens in the language being defined
         && Grammar still incomplete without explanation of intended associativity for binary operators
     \end{easylist}
 
 \subsection{Abstract Syntax Trees}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Abstract Syntax Trees (AST)
         && Node for every operation, with subtree for every operand
-        && Many language systems ust AST as internal representation of program
+        && Many language systems use AST as internal representation of program
         && Type-checking and post-parsing carried out on AST
     \end{easylist}
 
 \subsection{Conclusion}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Grammar defines more than syntax
         & Unique parse trees allow us to begin to define semantics
@@ -307,16 +307,150 @@
 %========================================================
 
 %========================================================
+\section{Ch4: Langauge Systems}
+\subsection{The Classical Sequence}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Language System
+        && Is what makes programming languages actually work
+        & Integrated Development Environment
+        && Single interface for editing, running, and debugging programs
+        & Classical Sequence of Language-System steps
+        && Editor creates source file
+        && Compiler creates assembly-language file
+        &&& Translates program from original high-level language into assembly langauge (instructions for processor)
+        && Assembler creates object file
+        &&& Converts each instruction into machine language
+        && Linker creates executable file
+        &&& Collect and combine different parts of program
+        && Loader creates a running program in memory
+    \end{easylist}
+
+\subsection{Optimization}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Compiler automatically optimizes code to make it faster and/or take up less memory
+        & Loop invariant removal
+        && Moves calculations of values which don't change outside the loop
+        & Code may be reorganized, removed, or added
+        && Not obvious what assembly code will be generated
+    \end{easylist}
+
+\subsection{Variations on the Classical Sequence}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Hiding steps
+        && gcc will compile, assemble, and link
+        && Using gcc, as, and ld can recreate these steps
+        & Integrated Development Environment
+        && Integrated editor will supply indenting and colors to make it easier to read
+        && May also provide source-control features to track verisons and coordinate collaboration
+        && May help with rebuilding automatically, especially when only a few files have changes
+        & Interpreters
+        && Executes program without translating it beforehand
+        & Virtual Machines
+        && Perform classical sequence of language-system steps to get an executable for a virtual machine
+        && Virtual-machine simulator is an interpreter, and compiles high-level program into intermediate code
+        && Virtual machines are often platform independent and more secure (b/c is never in control of physical processor)
+        && Java virtual machine is intermediate code supported on many different physical machines
+        && Wide spectrum of intermediate languages, ranging from pure interpreter to compiler
+        & Delayed Linking
+        && Windows' load-time dynamic linking links program to all library functions just before program begins running (.dll)
+        && Windows' run-time dynamic linking require explicit calls to find and load functions from library (.dll)
+        && Unix shared libraries are linked by loader just before program begins running (.so)
+        && Unix dynamically loaded libraries require explicit calls to find and load functions during runtime (.so)
+        && Multiple programs can share library function (fewer copies)
+        && Library function may be updated independently of the program
+        && Only load what is necessary, so startup is faster
+        & Profiling
+        && Instead of guessing what part of code is most important, compile twice
+        && Compile program, run it and collect statistics, then recompile and generate better code
+        & Dynamic Compilation
+        && Just-in-time compilation
+        && Compile after program starts running, once the function is actually called
+        && Java virtual machine interprets bytecode, which is slower, so it uses JIT compilation to get machine code to run
+        && JVM will only compile what is used often, as determined by call count
+    \end{easylist}
+
+\subsection{Binding Times}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Binding
+        && Act of associating properties with names
+        && Properties are things like what are the set of values, type, memory location, value, etc
+        & Language-Definition Time
+        && Keywords are part of language definition and language-system implementations must conform (void, for, etc)
+        & Language-Implementation Time
+        && Properties left out of language definition (range for int in C and ML)
+        && May introduce limits, such as on maximum length of name, levels of nesting, etc
+        & Compile Time
+        && Type of variable is bound
+        && Bind variable definitions to reference; nontrivial for large programs
+        & Link Time
+        && Find definitions of library functions to match each reference
+        & Load Time
+        && Load into memory (may make minor adjustments)
+        & Runtime
+        && Early binding
+        && Bound before runtime
+        &&& More secure, less things go wrong
+        && Late binding (runtime binding)
+        &&& More runtime flexibility
+        && Each high-level language has different binding-time implications
+        &&& In lisp, may not know type until runtime
+    \end{easylist}
+
+\subsection{Debuggers}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Core dump
+        && When langauge system hits fatal defect, writes copy of memory to a file
+        && Useful for postmortem analysis
+        && Language-system tool later extracts meaningful information from dump file, such as traceback, value of variables, etc
+        & Interactive debuggers allow programmer to inspect and modify variables while still running
+        && Debugger must express things in terms of the original program, not the compiled changes
+        && Must know the names of variables/functions, not just memory addresses
+        && But the optimizations of modern compilers weaken the connection between source and machine code, meaning that debuggers must conceal the actions of compilers and give the programmer the impression of debugging directly
+        & Integrated language system can provide editing and recompiling program while still running
+    \end{easylist}
+
+\subsection{Runtime Support}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Runtime support
+        && Additonal code included even though program does not explicitly refer to it, used in the following:
+        && Startup processing, to set up processor and memory in thew ay high-level code expects
+        && Exception handling, finding the exception handler or catching exceptions
+        && Memory management, icluding allocation and freeing
+        && Operating system input communication
+        && Concurrrent execution
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Classical Sequence
+        && Edit, compile, assemble, link, load, run
+        & Binding times
+        && Language definition, language implementation
+        && Early, late
+        & Debuggers and runtime support
+        & Programming language is not the same as programming-language system
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
 \section{Ch5: A First Look at ML}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Standard ML is the popular functional language
+        & Standard ML (Meta Language) is the popular functional language
         && Mostly learned just for knowledge of programming languages
     \end{easylist}
 
 \subsection{Getting Started with an ML Language System}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & -1 + 2 * 3
         && val it = 7 : int
@@ -325,7 +459,7 @@
     \end{easylist}
 
 \subsection{Constants, Operators, Conditional Expressions, Type Conversion and Function Application, Variable Definition}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Constants
         && real if decimal, int if integer, negation operator is a tilde
@@ -347,7 +481,7 @@
     \end{easylist}
 
 \subsection{Garbage Collection, Tuples and Lists}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & GC \#0.0.0.0.1.3 (0 ms)
         && ML prints this if performing garbage collection (SML/NJ)
@@ -373,7 +507,7 @@
     \end{easylist}
 
 \subsection{Function Definitions}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Polymorphic function
         && Paramters allow different types
@@ -381,7 +515,7 @@
     \end{easylist}
 
 \subsection{ML Types and Type Annotations}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Types: int, real, bool, char, string
         & Constructors: * for tuples, list for lists, -> for function types
@@ -389,16 +523,87 @@
         && fun prod(a:real, b:real) : real = a * b;
         && Many larger ML projects use type annotations heavily
     \end{easylist}
+\clearpage
+%========================================================
 
+%========================================================
+\section{Ch6: Types}
+\subsection{Menagerie of Types}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & A Type is a Set
+        && Can only have values from a certain set
+        && Share common representation in how they are encoded in memory
+        && Supports particular operations
+        & Primitive Types and Constructed Types
+        && Primitive types are like int and real
+        && Constructed types are defined by programmer
+        && Definition of programming language may say exactly what set each primitive type must be, or may leave room for choosing different sets
+        &&& Java wants programs to have same result across platforms, so defines all types completely
+        &&& C and ML allow different implementations (int)
+        & Enumerations
+        && Define new types by listing all elements of the type
+        && Enums in C just wraps integers, allowing you to add elements as if integers
+        && ML completely hides the implementation
+        & Tuples
+        && Generalized to n-tuples of any type
+        && Aggregate types are tuples, records, arrays, strings, lists
+        && Scalar types are primitives and enumerations
+        & Arrays, Strings, Lists
+        && Set A$^n$ is set of all vectors of length n 
+        && Array indices are not always only integers (Pascal)
+        & Unions
+        && Multiple elements in same block of memory
+        && Discriminated Union supports values which can be one of many types
+        & Subtypes
+        && Subset of an existing set
+        && Can support superset of operations
+        & Function Types
+        && From set A to set B
+    \end{easylist}
+
+\subsection{Uses for Types}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Type Annotations
+        && Explicit type information used to determine type/documentation
+        && Required in Java; allowed in ML; disallowed in Prolog, but comments serve the purpose
+        && ANSI Basic has ultra-compact type annotation inside the variable name
+        & Type Inference
+        && Most languages infer types based on operands or value
+        && ML infers types for every expression
+        & Type Checking
+        && Point is to prevent incorrect operations to operands
+        && Static type checking determines type for everything before running
+        &&& Generates consistent picture of types
+        && Dynamic type checking checks types at runtime
+        &&& Helpful for operators, etc
+        && Many systems implement both static and dynamic bc hard to know exact type + is expensive to check all types
+        && Strongly typed languages have type checking which is thorough enough to prevent any mistakes
+        && Java is strongly typed, Pascal is somewhat weak, C is more weak
+        & Type-Equivalence Issues
+        && Name-equivalence is when types are equivalent iff same name
+        && Structural equivalence is when types are equivalent iff constructed from same primitive types using same constructors in same order
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Types are similar to mathematical sets
+        & Abstract type describes types defined only in terms of supported operations
+        & Static vs dynamic type checking
+        & Name vs structural equivalence
+        & Type annotation vs inference
+    \end{easylist}
 \clearpage
 %========================================================
 
 %========================================================
 \section{Ch7: A Second Look at ML}
 \subsection{Patterns}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & A variable is a pattern that matches anything and bnids to it
+        & Patterns match data and introduce new variables
         & Underscore character matches anything and does not introduce new variables
         & Constant is pattern that matches only that constant value
         & Tuple of patterns is pattern that matches tuple of any right size, whose contents match subpatterns
@@ -408,7 +613,7 @@
     \end{easylist}
 
 \subsection{Using Multiple Patterns for Functions}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & fun f 0 = "zero" $|$ f 1 = "one";
         && Two different function bodies (still nonexhaustive)
@@ -416,7 +621,7 @@
     \end{easylist}
 
 \subsection{Pattern-Matching Style}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & If-else
         && Equivalent to the multiple patterns
@@ -437,7 +642,7 @@
     \end{easylist}
 
 \subsection{Local Variable Definitions and Nested Function Definitions}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & \textless let-exp \textgreater ::= let \textless definitions \textgreater in \textless expression \textgreater end
         && \textless definitions \textgreater hold only within \textless let-exp \textgreater
@@ -453,9 +658,81 @@
 %========================================================
 
 %========================================================
+\section{Ch8: Polymorphism}
+\subsection{Introduction}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Polymorphic functions can be applied to multiple types
+    \end{easylist}
+
+\subsection{Overloading}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Overloaded function is one that has at least two definitions, all of different types
+        && Can overload operators like + to mean different things on different types (int, real, string)
+        && Can overload functions to take int, double, etc
+        && Often up to the programmer to use overloading sensibly
+    \end{easylist}
+
+\subsection{Parameter Coercion}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Implicit type conversion is called coercion
+        && Specification for coercions can be very complex
+        && Coercion is often useful to programmers, but sometimes leads to confusing errors due to unexpected coercion
+        & Coercion for functions
+        && May be ambiguous, f(int, char) vs f(char, int)
+        &&& f ('a', 'a')
+    \end{easylist}
+
+\subsection{Parametric Polymorphism}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Parametric polymorphism is when type contains one or more type variables
+        && Substituting any type for ''a will result in a valid function
+        & Type with type variables like ''a * ''a -\textgreater bool is a polytype
+        & Implementing Parametric Polymorphism
+        && Generate separate copies of polymorphic function, one for each instatiation of type variables, and behave like overloading
+        &&& Optimized but takes more memory
+        && Or can create single general copy, which isn't optimized for each instantiation
+    \end{easylist}
+
+\subsection{Subtype Polymorphism}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & A function or operator exhibits subtype polymorphism if one or more of its parameters have subtypes
+        & Polymorphic Functions
+        && Subtypes are accepted in addition to the original type
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Dynamic Type Checking
+        && Polymorphism is a way to gain the freedom of dynamic type checking without losing benefits of static type checking
+        & Four types of polymorphism
+        && Overloading - multiple definitions of function each with different types
+        && Parameter Coercion - type conversion
+        && Parametric polymorphism - Substituting a specific type for a general type
+        && Subtype polymorphism - Functions can accept subtype even if asking for parent type
+        & Additional types of Polymorphic Langauges
+        && Polymorphic variables can be of different classes
+        && Polymorphism to call different function depending on actual class of object
+        && Temmplates for class definitions are parametric polymorphism
+        & Ad Hoc Polymorphism
+        && Is at least two, but finitely many types
+        && Overloading, parameter coercion
+        & Universal Polymorphism
+        && Has infinitely many types (no limit to what is possible)
+        && Parametric polymorphism, subtype polymorphism
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
 \section{Ch9: A Third Look at ML}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Case expressions
         && Pattern matching can be used in many other places, including case expressions
@@ -465,7 +742,7 @@
     \end{easylist}
 
 \subsection{More Pattern Matching}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Rule
         && \textless rule \textgreater ::= \textless pattern \textgreater = \textgreater \textless expression \textgreater
@@ -476,7 +753,7 @@
     \end{easylist}
 
 \subsection{Function Values and Anonymous Functions}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Predefined functions like ord and -:
         && Variables just like others, but initially bound to functions
@@ -490,7 +767,7 @@
     \end{easylist}
 
 \subsection{Higher-Order Functions and Currying}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & Order
         && Function that does not take any functions as parameters and does not return a function value has order 1
@@ -505,7 +782,7 @@
     \end{easylist}
 
 \subsection{Predefined Higher Order Functions}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & map
         && Applies some function to every element in the list
@@ -524,211 +801,390 @@
 %========================================================
 
 %========================================================
-\section{Ch4: Langauge Systems}
-\subsection{The Classical Sequence}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Language System
-        && Is what makes programming languages actually work
-        & Integrated Development Environment
-        && Single interface for editing, running, and debugging programs
-        & Classical Sequence of Language-System steps
-        && Editor creates source file
-        && Compiler creates assembly-language file
-        &&& Translates program from original high-level lnaguage into assembly langauge (instructions for processor)
-        && Assembler creates object file
-        &&& Converts each instruction into machine language
-        && Linker creates executable file
-        &&& Collect and combine different parts of program
-        && Loader creates a running program in memory
-    \end{easylist}
-
-\subsection{Optimization}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Compiler automatically optimizes code to make it faster and/or take up less memory
-        & Loop invariant removal
-        && Moves calculations of values which don't change outside the loop
-        & Code may be oreoranized, removed, or added
-        && Not obvious what assembly code will be generated
-    \end{easylist}
-
-\subsection{Variations on the Classical Sequence}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Hiding steps
-        && gcc will compile, assemble, and link
-        && Using gcc, as, and ld can recreate these steps
-        & Integrated Development Environment
-        && Integrated editor will supply indenting and colors to make it easier to read
-        && May also provide source-control features to track verisons and coordinate collaboration
-        && May help with rebuilding automatically, especially when only a few files have changes
-        & Interpreters
-        && Executes program without translating it beforehand
-        & Virtual Machines
-        && Perform classical sequence of language-system steps to get an executable for a virtual machine
-        && Virtual-machine simulator is an interpreter, and compiles high-level program into intermediate code
-        && Virtual machines are often platform independent and more secure (b/c is never in control of physical processor)
-        && Java virtual machine is intermediate code supported on many different physical machines
-        && Wide spectrum of intermediate languages, ranging from pure interpreter to compiler
-        & Delayed Linking
-        && Windows' load-time dynamic linking links program to all library functions just before program begins running (.dll)
-        && Windows' run-time dynamic linking require explicit calls to find and load functions from library (.dll)
-        && Unix shared libraries are linked by loader just before program begins running (.so)
-        && Unix dynamically loaded libraries require explicit calls to fnid and load functions during runtime (.so)
-        && Multiple programs can share library function (fewer copies)
-        && Library function may be updated independently of the program
-        && Only load what is necessary, so startup is faster
-        & Profiling
-        && Instead of guessing what part of code is most important, compile twice
-        && Compile program, run it and collect statistics, then recompile and generate better code
-        & Dynamic Compilation
-        && Just-in-time compilation
-        && Compile after program starts running, once the function is actually called
-        && Java virtual machine uses this
-    \end{easylist}
-
-\subsection{Binding Times}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Language-Definition Time
-        && Keywords are part of language definition and language-system implementations must conform
-        & Language-Implementation Time
-        && Properties left out of language definition
-        && Range for int is implementation dependent in C and ML
-        && May introduce limits, such as on maximum length of name, levels of nesting, etc
-        & Compile Time
-        && Type of variable is bound
-        && Bind variable definitons to reference; nontrivial for large programs
-        & Link Time
-        && Find definitons of library functions to match each reference
-        & Load Time
-        && May adjust program, then load into memory
-        & Runtime
-        && Early binding is when property is bound before runtime
-        &&& More secure, less things go wrong
-        && Late binding is runtime binding
-        &&& More runtime flexibility
-        && Each high-level language has different binding-time implications
-        &&& In lisp, may not know type until runtime
-    \end{easylist}
-
-\subsection{Debuggers}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Core dump
-        && When langauge system hits fatal defect, writes copy of memory to a file
-        && Useful for postmortem analysis
-        && Language-system tool later extracts meaningful information from dump file, such as traceback, value of variables, etc
-        & Interactive debuggers allow programmer to inspect and modify variables while still running
-        && Debugger must express things in terms of the original program, not the compiled changes
-        && Must know the names of variables/functions, not just memory addresses
-        && But the optimizations of modern compilers weaken the connection between source and machine code, meaning that debuggers must conceal the actions of compilers and give the programmer the impression of debugging directly
-        & Integrated language system can provide editing and recompiling program while still running
-    \end{easylist}
-
-\subsection{Runtime Support}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Runtime support
-        && Additonal code included even though program does not explicitly refer to it, used in the following:
-        && Startup processing, to set up processor and memory in thew ay high-level code expects
-        && Exception handling, finding the exception handler or catching exceptions
-        && Memory management, icluding allocation and freeing
-        && Operating system input communication
-        && Concurrrent execution
-    \end{easylist}
-
+\section{Ch10: Scope}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Classical Sequence
-        && Edit, compile, assemble, link, load, run
-        & Binding times
-        && Language definition, language implementation
-        && Early, late
-        & Debuggers and runtime support
-        & Programming language is not the same as programming-language system
-    \end{easylist}
-\clearpage
-%========================================================
-
-%========================================================
-\section{Ch6: Types}
-\subsection{Menagerie of Types}
-    \begin{easylist}  
-    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & A Type is a Set
-        && Can only have values from a certain set
-        && Share common representation in how they are encoded in memory
-        && Supports particular operations
-        & Primitive Types and Constructed Types
-        && Primitive types are like int and real
-        && Constructed types are defined by programmer
-        && Definition of progarmming language may say exactly what set each primitive type must be, or may leave room for choosing different sets
-        &&& Java wants programs to have same result across platforms, so defines all types completely
-        &&& C and ML allow different implementations
-        & Enumerations
-        && Define new types by ilsting all elements of the type
-        && Enums in C just wraps integers, allowing you to add elements as if integers
-        && ML completely hides the implementation
-        & Tuples
-        && Generalized to n-tuples of any type
-        && Aggregate types are tuples, records, arrays, strings, lists
-        && Scalar types are primitives and enumerations
-        & Arrays, Strings, Lists
-        && Set A$^n$ is set of all vectors of length n 
-        && Array indices are not always only integers (Pascal)
-        & Unions
-        && Mutiple elements in same block of memory
-        && Discriminated Union supports records which also contain enumeration
-        & Subtypes
-        && Subset of an existing set
-        && Can support superset of operations
-        & Function Types
-        && From set A to set B
+        & Nearly all languages allow reuse of variable names
+        && Thus nearly all languages use scoping to some extent
     \end{easylist}
 
-\subsection{Uses for Types}
-    \begin{easylist}  
+\subsection{Definitions and Scope}
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Type Annotations
-        && Explicit type information used to determine type/documentation
-        && Required in Java; allowed in ML; disallowed in Prolog, but comments serve the purpose
-        && ANSI Basic has ultra-compact type annotation inside the variable name
-        & Type Inference
-        && Most languages infer types based on operands or value
-        && ML infers types for every expression
-        & Type Checking
-        && Point is to prevent incorrect operations to operands
-        && Static type checking determines type for everything before running
-        &&& Generates consistent picture of types
-        && Dynamic type checking checks types at runtime
-        &&& Helpful for operators, etc
-        && Many systems implement both static and dynamic bc hard to know exact type + is expensive to check all types
-        && Strongly typed languages have type checking thorough enough to prevent any mistakes
-        && Java is strongly typed, Pascal is somewhat weak, C is more weak
-        & Type-Equivalence Issues
-        && Name-equivalence is when types are equivalent iff same name
-        && Structural equivalence is when types are equivalent iff constructed from same primitive types using same constructors in same order
+        & Definitions
+        && Bindings for names to variables, functions, types, classes, etc
+        && Also referred to as declarations and other things
+        & Scope
+        && In the scope of a given definition of that name whenever that definition governs the binding for the occurrence
+    \end{easylist}
+
+\subsection{Scoping with Blocks}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Blocks
+        && Any language construct that contains definitions and the region of the program where those definitions apply
+        && Inner blocks override outer blocks
+        && Classic block scope rule: Scope of a definition is block containing that definition, starting from point of definition to end of block, minus scope of any redefinitions of the same name
+        && Other variations exist
+        & ML
+        && Let, fun, and pattern matching all create blocks
+        & C
+        && Braces create compound statements
+    \end{easylist}
+
+\subsection{Scoping with Labeled Namespaces}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Labeled Namespaces
+        && Any language construct that contains definitions and a region of the program where those definitions apply 
+        && And has name that can be used to access those definitions outside of context
+        && Helps prevent namespace pollution (which is caused by everyone using the same short, memorable names)
+        & ML
+        && structures
+        & C
+        && namespace creates labeled namespaces
+        & Visibility within namespaces
+        && ML uses interfaces
+        && C uses public/private
+    \end{easylist}
+
+\subsection{Scoping with Primitive Namespaces}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Primitive Namespaces
+        && Not created using the language, are part of the language definition
+        && When searching for things like type, it is in the primitive namespace
+        && May have many different primitive namespaces, such as for packages types, methods, etc (Java)
+    \end{easylist}
+
+\subsection{Dynamic Scoping}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Classic Dynamic Scope Rule
+        && Scope of a definition is the function containing that definition, from the point of definition to the end of the function, along with any functions when they are called (including indirectly), from within that scope, minus scopes of any redefinitions
+        && Basically, variables are defined by their own scope; if not there, then its defined by caller's scope; if not there, keep going up
+        & Dynamic Scoping
+        && Hard to implement efficiently bc need to look up bindings at runtime
+        && Few languages use it b/c leads to large scopes + debugging headaches
+    \end{easylist}
+
+\subsection{A Word about Separate Compilation}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Separate Compilation
+        && Program is written as many small files
+        && Pieces are compiled separately, linked together
+        && Recent trends are showing 'separate compilation' as less and less separate, bc they may depend on each other, or need results of multiple, etc
     \end{easylist}
 
 \subsection{Conclusion}
-    \begin{easylist}  
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
-        & Types are similar to mathematical sets
-        & Abstract type describes types defined only in terms of supported operations
-        & Static vs dynamic type checking
-        & Name vs structural equivalence
-        & Type annotation vs inference
+        & Scope
+        && Cannot ask 'what is the scope of x'
+        && Must ask 'what is the scope of this definition of x'
+        && Names do not have scopes, definitions do
     \end{easylist}
 \clearpage
 %========================================================
 
 %========================================================
-\section{Ch4: Langauge Systems}
+\section{Ch11: A Fourth Look at ML}
+\subsection{Enumerations}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Enumerations
+        && Simple use of datatype is to create enumerations 
+        && datatype flip = Heads $|$ Tails;
+        && flip is a type constructor
+        && Heads is a data constructor
+        && Enumerations have enforced types, so normal type checking applies to them
+    \end{easylist}
+
+\subsection{Data Constructors with Parameters}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Data constructors can have parameters
+        && datatype exint = Value of int $|$ Plusinf $|$ Minusinf
+        && Use pattern matching to extract the value 
+        && Allows us to wrap values together
+    \end{easylist}
+
+\subsection{Type Constructors with Parameters}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Polymorphic type constructors
+        && Allows us to change the type of our type constructor just by passing a different variable
+        && datatype 'a option = NONE $|$ SOME of 'a
+        & option type constructor
+        && Useful for functions whose result is not always defined (division may result in NONE if div by 0)
+    \end{easylist}
+
+\subsection{Recursively Defined Type Constructors}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & In data constructor, can use type constructor being defined
+        && Allows us to define things like list and binary trees
+        &&& datatype intlist = INTNIL $|$ INTCONS of int * intlist
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch12: Memory Locations for Variables}
 \subsection{Introduction}
-    \begin{easylist}  
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Memory Location
+        && In C, can ask for memory location using \&x 
+        && In ML, memory location is an implementation detail hidden from user
+    \end{easylist}
+
+\subsection{Activation Specific Variables}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Activation Specific/Dynamic/Automatic Variables
+        && Local variables whose activation is dependent on a block
+        & Global
+        && Declared outside of a function and is bound to one memory location for entire runtime of program
+        & Static
+        && Only accessible inside function but bound to one memory location for entire runtime of program
+    \end{easylist}
+
+\subsection{Activation Records}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Multiple activations may be active at the same time
+        && When function calls another function, use activation records, so that we may keep track of variables
+        & Activation Records
+        && Activation-specific data like function return address, activation-specific variables
+        & Memory locations for variables of new blocks
+        && Avoids creating new activation records every time
+        && Instead, space for variables in each block is preallocated
+        && This assumes that the memory required is known
+        && If not known, may extend and shrink block as necessary
+    \end{easylist}
+
+\subsection{Static Allocation of Activation Records}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Allocating Activation Records
+        && Allocate one activation record for every function
+        && Count up how many items, how much space each item needs, return addresses, etc
+        && Allocate space for record statically, ahead of time
+        & Limitation
+        && Cannot perform recursion, because cannot have multiple functions running at the same time
+        && Because the calls would overwrite each other's variables
+    \end{easylist}
+
+\subsection{Dynamic Stacks of Activation Records}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Stackframes
+        && Dynamically allocate new activation record on function call
+        && Deallocate it when returning from function
+        && Has things like parameters, return address, pointer to previous return address, value to return
+    \end{easylist}
+
+\subsection{Handling Nested Function Definitions}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Nested functions with non-local references
+        && Some languages provide intermediate reference, not static or local, reference to variable in another function's activation record
+        && Use nesting link to give reference to first caller's activation record
+        && Can use nesting link twice to get references to variables that are multiple levels away (generalizable)
+        && Language may allow arbitrarily deep nesting
+        && But language implementations may impose their own restrictions
+        && Which may be bad if programmers are not sensible or automatic tools are used
+        & Other solutions
+        && Display: use a single static array to hold all nesting links
+        && Lambda lifting: pass each function all variables it needs through hidden parameters
+    \end{easylist}
+
+\subsection{Functions as Parameters}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Non-local references for functions as parameters 
+        && Sometimes functions (which have non-local references) are passed as parameters
+        && So cannot simply use nesting link to caller's activation record, b/c it would link the the function which received the function as a parameter
+        && Need to pass both the function implementation and its nesting links
+        & Other languages like C
+        && Don't have this issue because disallow nesting of functions
+    \end{easylist}
+
+\subsection{Long-Lived Functions}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & May create a function which returns a function which has non-local reference
+        && The created function may exist after the generator function returns
+        && Therefore, the activation record which the nesting link refers to may be deallocated
+        && Therefore, languages ike ML cannot just deallocate and reuse activation records immediately
+        && Can only reuse activation record once program no longer has any active links to it
+        && Requires memory-management technique called garbage collection
+    \end{easylist}
+
+\subsection{Conclusion}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Languages which disallow more than one activation of a function
+        && Can statically allocate activation records
+        & Languages which allow more than one activation of a function at once
+        && Can dynamically allocate activation records
+        & Langauges that allow non-local references from nested functions
+        && Need something extra, like nesting link
+        & Languages which allow references to activation records for functions which have returned, cannot just deallocate
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch13: A First Look at Java}
+\subsection{Introduction}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Java used as an introduction to imperative and object-oriented style of programming
+        & Will exclude majority of Java APIs
+        & Java is popular for web
+    \end{easylist}
+
+\subsection{Thinking about Objects}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Objects
+        && Has fields for its own data
+        && Has methods that it can do
+        && Is an instance of a class
+    \end{easylist}
+
+\subsection{Simple Expressions and Statements}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Constants and Types
+        && int, char (16bit Unicode, typically ignores integral nature), double (IEEE 754), boolean (case sensitive), void 
+        && null (special value can be assigned to any variable of any reference type)
+        && No primitive for string
+        & Operators for Integer/Real Arithmetic
+        && Overloaded for integer/real
+        & Concantenation of Strings
+        && No other object can be created so easily (usually requires 'new')
+        && Binary operator + is overloaded for concatenation
+        && Concatenation will coerce things like 123 into "123" (as well as others)
+        & Comparison Operators
+        && Comparison on numerics
+        && Equality on any; equal iff refer to same object
+        & Boolean Operators
+        && \&\&, $||$, and ! work and will short-circuit
+        & Operators with Side Effects
+        && Side effect is when operator changes something in the environment
+        &&& Assignment a=b
+        && Pure is if there are no side effects
+        & 1=a (lhs vs rhs)
+        && Anything with a value can appear on rhs of assignment
+        && Only Java expression which does not have value and is on rhs is call of method that returns void (void has no value)
+        && Lhs must have a memory location
+        && Java relies on context to distinguish left/right values, other languages do other things
+        & Methods
+        && Instance Methods Require object to operate on
+        & Object Creation Expressions
+        && Keyword 'new' is used to create a new object
+        && Garbage collection will clean up object afterwards
+        & Associativity, Precedence, Coercion, and All That
+        && Left associative, except for assignment operators (15 levels)
+        && Should use parentheses instead of relying on precedence bc readability
+        && Coercion is complex
+        & Expression Statements
+        && Statements are heart of any imperative language and are executed for side effects
+        && Ex: speed = 0 
+        & Compound Statements
+        && Consist of braces and a number of statements
+        & Declaration Statements
+        && Introduces local variable
+    \end{easylist}
+
+\subsection{Class Definitions}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Public, private, definition of fields, constructors
+        && Treat variables as if they were local
+        & Accessors, setters
+        & Possible to make some imperative code more functional than others
+    \end{easylist}
+
+\subsection{About References and Pointers}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & References
+        && Pass objects through their addresses (no copy)
+        & Java is like C++ but with pointers
+        && B/c cannot manipulate pointers and do arithmetic with them, like you can in C++
+        && No way to tell if pointer is really to pointer to an object
+        && Local variable cannot be an object in Java (but can in C++)
+    \end{easylist}
+
+\subsection{Getting Started with a Java Language System}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Java Development Kit
+        && Standard JDK includes debugger, disassembler, applet viewer, etc
+        & Application or Applet
+        && Application is like ordinary program in any language
+        && Applet runs in web browser
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch15: A Second Look at Java}
+\subsection{Introduction}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Polymorphism
+        && Person x may refer to some other class related to Person
+    \end{easylist}
+
+\subsection{Implementing Interfaces}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Interface
+        && Collection of method prototypes (declaration with body)
+        && Must implement all methods from interface(s)
+        && Can use name of interface in type declaration
+        &&& Allows polymorphism if multiple classes implement the interface
+    \end{easylist}
+
+\subsection{Extending Classes}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & Extend
+        && Inherits all fields and method definitions of class
+        && May override inherited defintions
+        & Polymorphism through inheritance
+        && Derived class can exist under the label of the base class
+        & Object
+        && All classes inherit from Object
+        && With inheritance, need to be aware of what operations each object supports
+        && For example, a square should not inherit a method which allows itself to be redrawn as a quadrilateral
+    \end{easylist}
+
+\subsection{Extending and Implementing}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+
+\subsection{Introduction}
+    \begin{easylist}
+    \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
+        & 
+    \end{easylist}
+\clearpage
+%========================================================
+
+%========================================================
+\section{Ch15: Memory Management}
+\subsection{Introduction}
+    \begin{easylist}
     \ListProperties(Hide=100, Hang=true, Progressive=4ex, Style*=--\ , Style2*=$\bullet\ $)
         & 
     \end{easylist}
